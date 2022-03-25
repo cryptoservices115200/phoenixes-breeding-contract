@@ -1,0 +1,9 @@
+
+pub const GLOBAL_STATE_SEED: &str = "GLOBAL_STATE_SEED";
+pub const BREEDING_NFT_DATA_SEED: &str = "BREEDING_NFT_DATA_SEED";
+
+pub enum NftType {
+  GENESIS,
+  MYTHIC,
+  EXALTED
+}
