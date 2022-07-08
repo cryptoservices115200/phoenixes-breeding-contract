@@ -38,29 +38,6 @@ pub mod phoenix_breeding {
 }
 
 #[derive(Accounts)]
-pub struct Initialize<'info> {
-    #[account(mut)]
-    pub admin: Signer<'info>,
-
-    #[account(
-        init,
-        seeds = [GLOBAL_STATE_SEED.as_ref()],
-        bump,
-        payer = admin
-    )]
-    pub global_state: Account<'info, GlobalState>,
-
-    pub lava_mint: Account<'info, Mint>,
-    
-    pub breed_nft_mint: Account<'info, Mint>,
-    
-    pub evolve_nft_mint: Account<'info, Mint>,
-    
-    pub system_program: Program<'info, System>,
-    pub rent: Sysvar<'info, Rent>,
-}
-
-#[derive(Accounts)]
 pub struct Breed<'info> {
     
     #[account(mut)]
@@ -83,6 +60,29 @@ pub struct Breed<'info> {
     pub system_program: Program<'info, System>,
     pub rent: Sysvar<'info, Rent>,
 
+}
+
+#[derive(Accounts)]
+pub struct Initialize<'info> {
+    #[account(mut)]
+    pub admin: Signer<'info>,
+
+    #[account(
+        init,
+        seeds = [GLOBAL_STATE_SEED.as_ref()],
+        bump,
+        payer = admin
+    )]
+    pub global_state: Account<'info, GlobalState>,
+
+    pub lava_mint: Account<'info, Mint>,
+    
+    pub breed_nft_mint: Account<'info, Mint>,
+    
+    pub evolve_nft_mint: Account<'info, Mint>,
+    
+    pub system_program: Program<'info, System>,
+    pub rent: Sysvar<'info, Rent>,
 }
 
 #[derive(Accounts)]
